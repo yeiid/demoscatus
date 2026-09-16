@@ -77,15 +77,30 @@
             Contamos con red de fibra dedicada lista para instalación inmediata en 24 a 48 horas.
           </p>
           <div class="mt-4 flex flex-wrap gap-3">
-            <a href="/pricing.html" class="inline-flex items-center gap-2 text-xs font-bold bg-emerald-500 text-slate-950 px-4 py-2 rounded-xl hover:bg-emerald-400 transition">
-              Solicitar Instalación →
-            </a>
+            <button id="btnCoverageRequest" data-plan-cta="Solicitud de Conexión en Zona de Cobertura" class="inline-flex items-center gap-2 text-xs font-bold bg-emerald-500 text-slate-950 px-5 py-2.5 rounded-xl hover:bg-emerald-400 transition cursor-pointer shadow-lg shadow-emerald-500/20">
+              Solicitar Instalación Inmediata →
+            </button>
             <button data-open-glossary class="inline-flex items-center gap-2 text-xs font-bold bg-slate-800 text-slate-300 px-4 py-2 rounded-xl hover:bg-slate-700 transition">
               🌵 Atención en Wayuunaiki
             </button>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- SECTORES LOCALES DE COBERTURA DIRECTA -->
+  <div class="mb-10 max-w-5xl mx-auto">
+    <h3 class="text-xl font-bold text-white mb-4 text-center">📍 Zonas Urbanas & Veredas con Conexión Activa</h3>
+    <div class="flex flex-wrap justify-center gap-2.5">
+      <button type="button" class="muni-tag px-3.5 py-1.5 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 text-xs font-bold hover:bg-emerald-500 hover:text-slate-950 transition cursor-pointer" data-muni="Hatonuevo">Hatonuevo (Urbano)</button>
+      <button type="button" class="muni-tag px-3.5 py-1.5 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 text-xs font-bold hover:bg-emerald-500 hover:text-slate-950 transition cursor-pointer" data-muni="El Cerro">El Cerro</button>
+      <button type="button" class="muni-tag px-3.5 py-1.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700 text-xs font-bold hover:bg-emerald-500 hover:text-slate-950 transition cursor-pointer" data-muni="Guamachito">Guamachito</button>
+      <button type="button" class="muni-tag px-3.5 py-1.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700 text-xs font-bold hover:bg-emerald-500 hover:text-slate-950 transition cursor-pointer" data-muni="El Pozo">El Pozo</button>
+      <button type="button" class="muni-tag px-3.5 py-1.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700 text-xs font-bold hover:bg-emerald-500 hover:text-slate-950 transition cursor-pointer" data-muni="Los Hornitos">Los Hornitos</button>
+      <button type="button" class="muni-tag px-3.5 py-1.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700 text-xs font-bold hover:bg-emerald-500 hover:text-slate-950 transition cursor-pointer" data-muni="Guayacanal">Guayacanal</button>
+      <button type="button" class="muni-tag px-3.5 py-1.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700 text-xs font-bold hover:bg-emerald-500 hover:text-slate-950 transition cursor-pointer" data-muni="Provincial">Provincial</button>
+      <button type="button" class="muni-tag px-3.5 py-1.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700 text-xs font-bold hover:bg-emerald-500 hover:text-slate-950 transition cursor-pointer" data-muni="Trupiogacho">Trupiogacho</button>
     </div>
   </div>
 
@@ -162,7 +177,14 @@
     const icon = document.getElementById('result-icon');
 
     const data = {
-      hatonuevo: { name: "Hatonuevo", speed: "1 Gbps Fibra Óptica", status: "¡Sede Principal Activa!", type: "activa", desc: "Red 100% de fibra óptica desplegada en zona urbana y rancherías aledañas." },
+      hatonuevo: { name: "Hatonuevo", speed: "1 Gbps Fibra Óptica FTTH", status: "¡Sede Principal Activa!", type: "activa", desc: "Red 100% simétrica de fibra óptica desplegada en zona urbana (Barrio 20 de Julio, Centro, La Palma) y zonas aledañas." },
+      "el cerro": { name: "El Cerro (Hatonuevo)", speed: "1 Gbps Fibra Óptica", status: "¡Fibra Óptica Activa!", type: "activa", desc: "Conexión directa por fibra óptica con soporte local 24/7 y sin cláusulas." },
+      guamachito: { name: "Guamachito", speed: "Fibra & Microenlace Rural", status: "¡Zona Rural Activa!", type: "rural", desc: "Cobertura de alta estabilidad para fincas, hogares y comercios rurales." },
+      "el pozo": { name: "El Pozo", speed: "Microenlace Dedicado Rural", status: "¡Zona Rural Activa!", type: "rural", desc: "Enlace inalámbrico de alta potencia con disponibilidad continua." },
+      "los hornitos": { name: "Los Hornitos", speed: "Enlace Rural de Alta Capacidad", status: "¡Zona Rural Activa!", type: "rural", desc: "Conexión estable con soporte técnico local y atención en Wayuunaiki." },
+      guayacanal: { name: "Guayacanal", speed: "Microenlace Rural", status: "¡Zona Rural Activa!", type: "rural", desc: "Conectividad garantizada para familias e instituciones de la vereda." },
+      provincial: { name: "Provincial", speed: "Fibra & Antena Comunitaria", status: "¡Comunidad Conectada!", type: "rural", desc: "Red de alta velocidad adaptada para rancherías y centros educativos." },
+      trupiogacho: { name: "Trupiogacho", speed: "Enlace Rural Dedicado", status: "¡Zona Rural Activa!", type: "rural", desc: "Internet simétrico y soporte directo con equipo local en Hatonuevo." },
       riohacha: { name: "Riohacha", speed: "500 Mbps Fibra Óptica", status: "¡Cobertura Total Disponible!", type: "activa", desc: "Instalación express disponible en 24h para zonas urbanas y playa." },
       maicao: { name: "Maicao", speed: "500 Mbps Fibra Óptica", status: "¡Cobertura Comercial Activa!", type: "activa", desc: "Red empresarial y residencial de ultra latencia baja." },
       uribia: { name: "Uribia", speed: "200 Mbps Enlace Rural", status: "¡Cobertura Indígena Especial!", type: "rural", desc: "Nodos de alta potencia con atención y soporte directo en Wayuunaiki." },
@@ -186,11 +208,15 @@
         desc.innerText = match.desc;
         status.innerText = match.status;
         icon.innerText = "⚡";
+        const btnReq = document.getElementById('btnCoverageRequest');
+        if (btnReq) btnReq.setAttribute('data-plan-cta', `Solicitud de Instalación en ${match.name}`);
       } else {
         title.innerText = `Ampliación de Cobertura en Proceso`;
         desc.innerText = `Estamos expandiendo la red hacia tu zona en La Guajira. ¡Deja tus datos para priorizar tu instalación!`;
         status.innerText = "🚧 Plan de Expansión MINTIC";
         icon.innerText = "🛰️";
+        const btnReq = document.getElementById('btnCoverageRequest');
+        if (btnReq) btnReq.setAttribute('data-plan-cta', `Prioridad de Expansión para: ${query}`);
       }
     }
 
@@ -199,7 +225,7 @@
       check(input.value);
     });
 
-    document.querySelectorAll('.muni-card').forEach(card => {
+    document.querySelectorAll('.muni-card, .muni-tag').forEach(card => {
       card.addEventListener('click', () => {
         const name = card.getAttribute('data-muni');
         input.value = name;

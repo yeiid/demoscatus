@@ -77,3 +77,18 @@ document.querySelectorAll('.pricing-card-3d').forEach(card => {
         card.style.transform = 'translateY(0)';
     });
 });
+
+// ============================
+// WHATSAPP REDIRECTION ON PLAN BUTTONS
+// ============================
+document.querySelectorAll('.pricing-card-3d .btn-glow').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const card = btn.closest('.pricing-card-3d');
+        const speed = card?.querySelector('.plan-speed')?.textContent?.trim() || '150 Mbps';
+        const price = card?.querySelector('.plan-price')?.textContent?.trim() || '$80.000/mes';
+        const text = `¡Hola CactusNet! Me interesa contratar el Plan Hogar de ${speed} (${price}) en La Guajira. ¿Podrían brindarme información para agendar la instalación?`;
+        window.open(`https://wa.me/573176119013?text=${encodeURIComponent(text)}`, '_blank');
+    });
+});
+
