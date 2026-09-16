@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CactusNet — Demo de Mejoras de Estilo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ============ BANNER DE DEMO ============ -->
+    <div class="demo-banner">
+        <span>🎨 Demo Interactivo — Mejoras de Estilo CactusNet</span>
+        <div style="display: flex; gap: 10px; align-items: center;">
+            <a href="/catalog.html" style="color: #fff; text-decoration: none; font-size: 13px; font-weight: 600; padding: 4px 10px; background: rgba(255,255,255,0.1); border-radius: 6px; border: 1px solid rgba(255,255,255,0.2);">← Catálogo Demos</a>
+            <button onclick="document.documentElement.dataset.theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'">🌓 Toggle Theme</button>
+        </div>
+    </div>
+
+    <!-- ============ 1. HERO CON AURORA + TEXTO ANIMADO ============ -->
+    <section class="hero-demo" id="hero">
+        <div class="aurora-bg">
+            <div class="aurora aurora-1"></div>
+            <div class="aurora aurora-2"></div>
+            <div class="aurora aurora-3"></div>
+        </div>
+        <div class="hero-noise"></div>
+        <div class="container hero-content">
+            <div class="hero-badge animate-in">
+                <span class="badge-dot"></span>
+                Operador aliado MINTIC
+            </div>
+            <h1 class="hero-title animate-in" style="--delay: 0.1s">
+                Internet de <span class="text-shimmer">Ultra Velocidad</span> donde otros no llegan.
+            </h1>
+            <p class="hero-subtitle animate-in" style="--delay: 0.2s">
+                Fibra Óptica 100% Simétrica para Hatonuevo y zonas rurales.
+            </p>
+            <div class="hero-actions animate-in" style="--delay: 0.3s">
+                <a href="#pricing" class="btn-glow">
+                    <span>Ver Planes</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="#cards" class="btn-outline-glow">Consultar Cobertura</a>
+            </div>
+            <!-- Scroll indicator -->
+            <div class="scroll-indicator animate-in" style="--delay: 0.5s">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ 2. TARJETAS CON BORDES ANIMADOS ============ -->
+    <section class="section" id="cards">
+        <div class="container">
+            <div class="section-label">✨ Técnica: Bordes con gradiente animado</div>
+            <h2 class="section-title">Tarjetas <span class="text-gradient">Premium</span></h2>
+            <div class="cards-grid">
+                <div class="card-animated-border" data-scroll>
+                    <div class="card-inner">
+                        <div class="card-icon">🌐</div>
+                        <h3>Conectividad Rural</h3>
+                        <p>Llegamos donde otros no pueden con fibra óptica de última generación.</p>
+                        <div class="card-stat">
+                            <span class="stat-number" data-count="98">0</span>
+                            <span class="stat-label">% Uptime</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-animated-border" data-scroll>
+                    <div class="card-inner">
+                        <div class="card-icon">⚡</div>
+                        <h3>Ultra Velocidad</h3>
+                        <p>Simetría total de subida y bajada para la mejor experiencia.</p>
+                        <div class="card-stat">
+                            <span class="stat-number" data-count="200">0</span>
+                            <span class="stat-label">Mbps</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-animated-border" data-scroll>
+                    <div class="card-inner">
+                        <div class="card-icon">🛡️</div>
+                        <h3>Soporte 24/7</h3>
+                        <p>Equipo local disponible siempre que lo necesites.</p>
+                        <div class="card-stat">
+                            <span class="stat-number" data-count="24">0</span>
+                            <span class="stat-label">hrs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ 3. PRICING CON GLASSMORPHISM AVANZADO ============ -->
+    <section class="section pricing-section" id="pricing">
+        <div class="container">
+            <div class="section-label">💎 Técnica: Glassmorphism + 3D hover</div>
+            <h2 class="section-title">Planes de <span class="text-gradient">Fibra Óptica</span></h2>
+            <div class="pricing-grid">
+                <!-- Plan 1 -->
+                <div class="pricing-card-3d" data-scroll>
+                    <div class="pricing-glass">
+                        <div class="plan-speed">100 <small>Mbps</small></div>
+                        <div class="plan-price">$60.000<span>/mes</span></div>
+                        <p class="plan-desc">Navegación y streaming fluido</p>
+                        <ul class="plan-features">
+                            <li><span class="check">✓</span> 100% Fibra Óptica</li>
+                            <li><span class="check">✓</span> Simetría total</li>
+                            <li><span class="check">✓</span> Sin cláusulas</li>
+                        </ul>
+                        <button class="btn-glow w-full">Solicitar Plan</button>
+                    </div>
+                </div>
+                <!-- Plan 2 - Featured -->
+                <div class="pricing-card-3d featured" data-scroll>
+                    <div class="featured-badge">RECOMENDADO</div>
+                    <div class="pricing-glass">
+                        <div class="plan-speed">150 <small>Mbps</small></div>
+                        <div class="plan-price">$80.000<span>/mes</span></div>
+                        <p class="plan-desc">Familias y teletrabajo</p>
+                        <ul class="plan-features">
+                            <li><span class="check">✓</span> Instalación prioritaria</li>
+                            <li><span class="check">✓</span> Baja latencia</li>
+                            <li><span class="check">✓</span> Soporte 24/7</li>
+                            <li><span class="check">✓</span> Sin cláusulas</li>
+                        </ul>
+                        <button class="btn-glow w-full">Solicitar Plan</button>
+                    </div>
+                </div>
+                <!-- Plan 3 -->
+                <div class="pricing-card-3d" data-scroll>
+                    <div class="pricing-glass">
+                        <div class="plan-speed">200 <small>Mbps</small></div>
+                        <div class="plan-price">$100.000<span>/mes</span></div>
+                        <p class="plan-desc">Gaming y 4K sin límites</p>
+                        <ul class="plan-features">
+                            <li><span class="check">✓</span> Ultra Velocidad</li>
+                            <li><span class="check">✓</span> Ideal Gamers</li>
+                            <li><span class="check">✓</span> IP Pública</li>
+                        </ul>
+                        <button class="btn-glow w-full">Solicitar Plan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ 4. FAQ CON ANIMACIÓN SUAVE ============ -->
+    <section class="section" id="faq">
+        <div class="container">
+            <div class="section-label">🎯 Técnica: Smooth height transitions + micro-animations</div>
+            <h2 class="section-title">Preguntas <span class="text-gradient">Frecuentes</span></h2>
+            <div class="faq-list">
+                <div class="faq-item-v2" data-scroll>
+                    <button class="faq-trigger">
+                        <span>¿Cuánto tiempo tarda la instalación?</span>
+                        <div class="faq-icon"><span></span><span></span></div>
+                    </button>
+                    <div class="faq-body"><div class="faq-body-inner">
+                        <p>El tiempo promedio de instalación es de 24 a 48 horas hábiles después de la solicitud, sujeto a validación técnica.</p>
+                    </div></div>
+                </div>
+                <div class="faq-item-v2" data-scroll>
+                    <button class="faq-trigger">
+                        <span>¿El internet es realmente simétrico?</span>
+                        <div class="faq-icon"><span></span><span></span></div>
+                    </button>
+                    <div class="faq-body"><div class="faq-body-inner">
+                        <p>Sí, nuestra fibra óptica garantiza la misma velocidad de subida que de bajada, ideal para videollamadas y streaming.</p>
+                    </div></div>
+                </div>
+                <div class="faq-item-v2" data-scroll>
+                    <button class="faq-trigger">
+                        <span>¿Hay cláusulas de permanencia?</span>
+                        <div class="faq-icon"><span></span><span></span></div>
+                    </button>
+                    <div class="faq-body"><div class="faq-body-inner">
+                        <p>En CactusNet no te atamos con contratos a largo plazo. Creemos en la calidad de nuestro servicio para que te quedes con nosotros.</p>
+                    </div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ 5. FOOTER MODERNO ============ -->
+    <footer class="footer-v2">
+        <div class="footer-glow"></div>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-logo-text">cactus<span>net</span></div>
+                    <p>Conectando comunidades con el futuro.</p>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Mantente conectado</h4>
+                    <div class="newsletter-input">
+                        <input type="email" placeholder="tu@email.com">
+                        <button class="btn-glow">→</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-bottom-v2">
+                <p>© 2026 CactusNet SAS. Todos los derechos reservados.</p>
+                <p class="footer-mintic">Aliado estratégico MINTIC</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="./script.js"></script>
+</body>
+</html>

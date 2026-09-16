@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CactusNet — Conectividad Premium</title>
+  <link rel="icon" href="/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <script type="module" src="/src/main.js"></script>
+  <style>
+    /* Elegant theme overrides — lavender palette */
+    :root {
+      --el-bg: #1a1625;
+      --el-card: rgba(255,255,255,0.05);
+      --el-card-solid: #231e30;
+      --el-accent: #a78bfa;
+      --el-accent2: #6ee7b7;
+      --el-border: rgba(167,139,250,0.12);
+      --el-text: #e8e4ef;
+      --el-muted: #9890a8;
+    }
+    body { background: var(--el-bg) !important; color: var(--el-text) !important; }
+    .el-glass {
+      background: var(--el-card);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--el-border);
+    }
+    .el-glass-solid {
+      background: var(--el-card-solid);
+      border: 1px solid var(--el-border);
+    }
+    .el-accent { color: var(--el-accent); }
+    .el-accent2 { color: var(--el-accent2); }
+    .el-btn {
+      background: rgba(167,139,250,0.15);
+      border: 1px solid rgba(167,139,250,0.3);
+      color: var(--el-accent);
+      padding: .6rem 1.4rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: .85rem;
+      cursor: pointer;
+      transition: all .3s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .el-btn:hover {
+      background: var(--el-accent);
+      color: #1a1625;
+      box-shadow: 0 0 30px rgba(167,139,250,.3);
+    }
+    .el-btn-solid {
+      background: var(--el-accent);
+      color: #1a1625;
+      border: none;
+    }
+    .el-btn-solid:hover {
+      background: #c4b5fd;
+      box-shadow: 0 0 40px rgba(167,139,250,.4);
+    }
+    .el-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      padding: .35rem .8rem;
+      border-radius: 999px;
+      font-size: .75rem;
+      font-weight: 600;
+      background: rgba(167,139,250,0.1);
+      border: 1px solid rgba(167,139,250,0.2);
+      color: var(--el-accent);
+    }
+    .el-divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--el-accent), transparent);
+      border-radius: 1px;
+    }
+  </style>
+</head>
+<body class="antialiased">
+
+<!-- =========== NAV =========== -->
+<nav class="fixed top-0 inset-x-0 z-50 py-4 transition-all duration-300" style="background:rgba(26,22,37,.8);backdrop-filter:blur(16px);border-bottom:1px solid var(--el-border)">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+    <a href="/catalog.html" class="font-heading text-xl font-extrabold tracking-tight" style="color:var(--el-text)">
+      CACTUS<span style="color:var(--el-accent)">NET</span>
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#about" class="text-sm font-medium hover:text-[var(--el-accent)] transition" style="color:var(--el-muted)">Nosotros</a>
+      <a href="#services" class="text-sm font-medium hover:text-[var(--el-accent)] transition" style="color:var(--el-muted)">Servicios</a>
+      <a href="#plans" class="text-sm font-medium hover:text-[var(--el-accent)] transition" style="color:var(--el-muted)">Planes</a>
+      <a href="#contact" class="el-btn el-btn-solid text-sm">Conectarme →</a>
+    </div>
+    <button id="menuBtn" class="md:hidden p-2" style="color:var(--el-text)">
+      <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile nav -->
+<div id="navOverlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[60] opacity-0 pointer-events-none transition-opacity duration-300"></div>
+<div id="mobileNav" class="fixed top-0 right-0 h-full w-72 z-[70] transform translate-x-full transition-transform duration-500 ease-out flex flex-col p-6 gap-6" style="background:var(--el-bg);border-left:1px solid var(--el-border)">
+  <button onclick="document.getElementById('menuBtn').click()" class="self-end" style="color:var(--el-muted)"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+  <a href="#about" class="text-lg font-semibold" style="color:var(--el-text)">Nosotros</a>
+  <a href="#services" class="text-lg font-semibold" style="color:var(--el-text)">Servicios</a>
+  <a href="#plans" class="text-lg font-semibold" style="color:var(--el-text)">Planes</a>
+  <a href="/catalog.html" class="text-sm mt-auto" style="color:var(--el-muted)">← Catálogo</a>
+</div>
+
+<!-- =========== HERO — AKINA STYLE =========== -->
+<section class="relative pt-24 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 pt-12 pb-6">
+    <!-- Hero card with image -->
+    <div class="relative rounded-[2rem] overflow-hidden min-h-[70vh] flex flex-col justify-between" data-reveal>
+      <!-- Background image -->
+      <img src="/mountains.png" alt="La Guajira mountains" class="absolute inset-0 w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-t from-[#1a1625] via-[#1a1625]/40 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-[#1a1625]/50 to-transparent"></div>
+
+      <!-- Top bar -->
+      <div class="relative z-10 flex items-center justify-between p-6">
+        <div class="flex items-center gap-2">
+          <div class="w-3 h-3 rounded-full" style="background:var(--el-accent2)"></div>
+          <div class="w-3 h-3 rounded-full" style="background:var(--el-accent)"></div>
+          <div class="w-3 h-3 rounded-full bg-white/20"></div>
+        </div>
+      </div>
+
+      <!-- Center content -->
+      <div class="relative z-10 flex flex-col items-center text-center px-6 py-16">
+        <p class="font-heading text-sm font-bold tracking-[.3em] uppercase mb-6" style="color:var(--el-accent)">CACTUSNET</p>
+        <h1 class="font-heading text-5xl sm:text-7xl lg:text-8xl font-extrabold text-white tracking-tight leading-[1.05] mb-6">
+          Conecta con<br>La Guajira
+        </h1>
+        <a href="#plans" class="el-btn el-btn-solid mt-2 text-base px-8 py-3">Ver planes disponibles</a>
+      </div>
+
+      <!-- Bottom bar with tags -->
+      <div class="relative z-10 p-6 flex flex-wrap items-center gap-3">
+        <div class="el-tag">📞 317 611 9013</div>
+        <div class="el-tag">🌐 cactusnet.com.co</div>
+        <div class="el-tag">📍 Hatonuevo</div>
+        <div class="el-tag">🛡️ Aliado MINTIC</div>
+        <a href="#about" class="ml-auto text-xs font-medium hover:underline" style="color:var(--el-muted)">más información ↓</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== ABOUT — BENTO CARDS =========== -->
+<section class="max-w-7xl mx-auto px-6 py-20" id="about">
+  <div class="text-center mb-4" data-reveal>
+    <h2 class="font-heading text-4xl sm:text-5xl font-extrabold text-white">Sobre Nosotros</h2>
+  </div>
+  <div class="flex justify-center mb-16" data-reveal><div class="el-divider"></div></div>
+
+  <!-- Bento grid — mimics AKINA layout -->
+  <div class="grid md:grid-cols-12 gap-5">
+    <!-- Left: Image + text card -->
+    <div class="md:col-span-7 el-glass-solid rounded-3xl overflow-hidden flex flex-col sm:flex-row" data-reveal>
+      <div class="sm:w-1/2 min-h-[260px] relative overflow-hidden">
+        <img src="/rural.png" alt="Conectividad rural" class="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+      </div>
+      <div class="sm:w-1/2 p-8 flex flex-col justify-center">
+        <h3 class="font-heading text-2xl font-bold text-white mb-4">Fibra óptica donde otros no llegan</h3>
+        <p class="text-sm leading-relaxed mb-5" style="color:var(--el-muted)">
+          Somos un ISP comprometido con cerrar la brecha digital en La Guajira. Nuestra red de fibra óptica conecta comunidades rurales y urbanas con internet de alta velocidad.
+        </p>
+        <p class="text-xs" style="color:var(--el-muted)">Hatonuevo, La Guajira — Colombia</p>
+      </div>
+    </div>
+
+    <!-- Right: Info card -->
+    <div class="md:col-span-5 el-glass-solid rounded-3xl p-8 flex flex-col justify-between" data-reveal>
+      <div>
+        <p class="text-sm mb-4" style="color:var(--el-muted)">Conoce más sobre nuestros servicios, planes y cobertura en nuestra plataforma.</p>
+      </div>
+      <a href="#services" class="el-btn self-start mt-4">Ver más →</a>
+    </div>
+
+    <!-- Bottom left: simple card -->
+    <div class="md:col-span-4 el-glass-solid rounded-3xl p-8 flex flex-col justify-between" data-reveal>
+      <div>
+        <p class="text-sm" style="color:var(--el-muted)">Disponible en <span class="text-white font-semibold">español</span>, <span class="text-white font-semibold">English</span> y <span style="color:var(--el-accent)" class="font-semibold">Wayuunaiki</span>.</p>
+      </div>
+      <a href="/pricing.html" class="el-btn self-start mt-6">Explorar →</a>
+    </div>
+
+    <!-- Bottom right: dark card with image -->
+    <div class="md:col-span-8 rounded-3xl overflow-hidden relative min-h-[280px] flex" data-reveal style="background:linear-gradient(135deg,#2d1b4e,#1a1625)">
+      <div class="flex-1 p-8 flex flex-col justify-center z-10">
+        <h3 class="font-heading text-2xl font-bold text-white mb-3">Planes hogar y empresariales</h3>
+        <p class="text-sm leading-relaxed mb-6" style="color:var(--el-muted)">Internet simétrico de fibra óptica desde 100 hasta 250 Megas. Sin cláusulas de permanencia, con soporte local 24/7.</p>
+        <div class="flex gap-3">
+          <a href="#plans" class="el-btn el-btn-solid">Hogar</a>
+          <a href="#plans" class="el-btn">Empresarial</a>
+        </div>
+      </div>
+      <div class="hidden sm:block w-2/5 relative overflow-hidden">
+        <img src="/fiber.png" alt="Fibra óptica" class="absolute inset-0 w-full h-full object-cover opacity-60">
+        <div class="absolute inset-0 bg-gradient-to-r from-[#2d1b4e] to-transparent"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== SERVICES =========== -->
+<section class="max-w-7xl mx-auto px-6 py-20" id="services">
+  <div class="text-center mb-4" data-reveal>
+    <h2 class="font-heading text-4xl font-extrabold text-white">Nuestros Servicios</h2>
+  </div>
+  <div class="flex justify-center mb-16" data-reveal><div class="el-divider"></div></div>
+
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+    <div class="el-glass-solid rounded-3xl p-8 transition-all duration-300 hover:-translate-y-1" style="border-color:transparent" data-reveal data-tilt>
+      <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl mb-5" style="background:rgba(167,139,250,.1)">🏠</div>
+      <h3 class="font-heading text-lg font-bold text-white mb-3">Internet Hogar</h3>
+      <p class="text-sm leading-relaxed" style="color:var(--el-muted)">Fibra óptica 100% simétrica para toda la familia. Streaming, educación y trabajo remoto sin interrupciones.</p>
+    </div>
+    <div class="el-glass-solid rounded-3xl p-8 transition-all duration-300 hover:-translate-y-1" style="border-color:transparent" data-reveal data-tilt>
+      <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl mb-5" style="background:rgba(110,231,183,.1)">🏢</div>
+      <h3 class="font-heading text-lg font-bold text-white mb-3">Internet Empresarial</h3>
+      <p class="text-sm leading-relaxed" style="color:var(--el-muted)">Soluciones corporativas con SLA garantizado, IP pública y soporte VIP para tu negocio.</p>
+    </div>
+    <div class="el-glass-solid rounded-3xl p-8 transition-all duration-300 hover:-translate-y-1" style="border-color:transparent" data-reveal data-tilt>
+      <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl mb-5" style="background:rgba(249,115,22,.1)">🌾</div>
+      <h3 class="font-heading text-lg font-bold text-white mb-3">Internet Rural</h3>
+      <p class="text-sm leading-relaxed" style="color:var(--el-muted)">Conectamos veredas y zonas rurales de La Guajira donde antes no existía cobertura.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =========== PLANS =========== -->
+<section class="max-w-6xl mx-auto px-6 py-20" id="plans">
+  <div class="text-center mb-4" data-reveal>
+    <h2 class="font-heading text-4xl font-extrabold text-white">Planes Disponibles</h2>
+  </div>
+  <div class="flex justify-center mb-16" data-reveal><div class="el-divider"></div></div>
+
+  <div class="grid md:grid-cols-3 gap-5">
+    <div class="el-glass-solid rounded-3xl p-8 flex flex-col transition-all duration-300 hover:-translate-y-1" data-reveal data-tilt>
+      <p class="text-sm font-semibold mb-2" style="color:var(--el-accent)">Básico</p>
+      <p class="font-heading text-4xl font-extrabold text-white">100 <span class="text-base font-normal" style="color:var(--el-muted)">Mbps</span></p>
+      <div class="h-px my-5" style="background:var(--el-border)"></div>
+      <p class="font-heading text-2xl font-bold text-white">$60.000<span class="text-sm font-normal" style="color:var(--el-muted)">/mes</span></p>
+      <ul class="mt-5 space-y-3 text-sm flex-grow mb-8" style="color:var(--el-muted)">
+        <li class="flex items-center gap-2"><span style="color:var(--el-accent2)">✓</span> 100% Fibra Óptica</li>
+        <li class="flex items-center gap-2"><span style="color:var(--el-accent2)">✓</span> Simetría total</li>
+        <li class="flex items-center gap-2"><span style="color:var(--el-accent2)">✓</span> Sin cláusulas</li>
+      </ul>
+      <button class="el-btn w-full justify-center">Solicitar</button>
+    </div>
+
+    <!-- Featured -->
+    <div class="rounded-3xl p-[2px] transition-all duration-300 hover:-translate-y-2" style="background:linear-gradient(180deg,var(--el-accent),var(--el-accent2),rgba(167,139,250,.2));box-shadow:0 0 40px rgba(167,139,250,.15)" data-reveal data-tilt>
+      <div class="rounded-[22px] p-8 flex flex-col h-full" style="background:var(--el-bg)">
+        <div class="flex items-center justify-between mb-2">
+          <p class="text-sm font-semibold" style="color:var(--el-accent)">Familiar</p>
+          <span class="text-[10px] font-bold px-3 py-1 rounded-full" style="background:var(--el-accent);color:#1a1625">⭐ RECOMENDADO</span>
+        </div>
+        <p class="font-heading text-4xl font-extrabold text-white">150 <span class="text-base font-normal" style="color:var(--el-muted)">Mbps</span></p>
+        <div class="h-px my-5" style="background:rgba(167,139,250,.2)"></div>
+        <p class="font-heading text-2xl font-bold text-white">$80.000<span class="text-sm font-normal" style="color:var(--el-muted)">/mes</span></p>
+        <ul class="mt-5 space-y-3 text-sm flex-grow mb-8" style="color:var(--el-muted)">
+          <li class="flex items-center gap-2"><span style="color:var(--el-accent2)">✓</span> Instalación prioritaria</li>
+          <li class="flex items-center gap-2"><span style="color:var(--el-accent2)">✓</span> Baja latencia</li>
+          <li class="flex items-center gap-2"><span style="color:var(--el-accent2)">✓</span> Soporte 24/7</li>
+          <li class="flex items-center gap-2"><span style="color:var(--el-accent2)">✓</span> Sin cláusulas</li>
+        </ul>
+        <button class="el-btn el-btn-solid w-full justify-center">Solicitar</button>
+      </div>
+    </div>
+
+    <div class="el-glass-solid rounded-3xl p-8 flex flex-col transition-all duration-300 hover:-translate-y-1" data-reveal data-tilt>
+      <p class="text-sm font-semibold mb-2" style="color:var(--el-accent)">Ultra</p>
+      <p class="font-heading text-4xl font-extrabold text-white">200 <span class="text-base font-normal" style="color:var(--el-muted)">Mbps</span></p>
+      <div class="h-px my-5" style="background:var(--el-border)"></div>
+      <p class="font-heading text-2xl font-bold text-white">$100.000<span class="text-sm font-normal" style="color:var(--el-muted)">/mes</span></p>
+      <ul class="mt-5 space-y-3 text-sm flex-grow mb-8" style="color:var(--el-muted)">
+        <li class="flex items-center gap-2"><span style="color:var(--el-accent2)">✓</span> Ultra Velocidad</li>
+        <li class="flex items-center gap-2"><span style="color:var(--el-accent2)">✓</span> Ideal Gamers</li>
+        <li class="flex items-center gap-2"><span style="color:var(--el-accent2)">✓</span> IP Pública</li>
+      </ul>
+      <button class="el-btn w-full justify-center">Solicitar</button>
+    </div>
+  </div>
+</section>
+
+<!-- =========== SEARCH / CTA — AKINA BOTTOM =========== -->
+<section class="relative py-20 overflow-hidden" id="contact">
+  <!-- Background mountain image -->
+  <div class="absolute inset-0">
+    <img src="/mountains.png" alt="" class="w-full h-full object-cover opacity-30">
+    <div class="absolute inset-0 bg-gradient-to-t from-[var(--el-bg)] via-[var(--el-bg)]/70 to-[var(--el-bg)]/40"></div>
+  </div>
+  <div class="relative z-10 max-w-3xl mx-auto px-6 text-center">
+    <div class="flex justify-center mb-6">
+      <div class="w-16 h-16 rounded-2xl flex items-center justify-center" style="background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.2)">
+        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--el-accent)"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </div>
+    </div>
+    <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-white mb-4">Consulta tu cobertura</h2>
+    <p class="text-sm mb-8" style="color:var(--el-muted)">Ingresa tu vereda o barrio para verificar si contamos con cobertura en tu zona.</p>
+    <!-- Search bar -->
+    <div class="flex items-center max-w-lg mx-auto rounded-full overflow-hidden" style="background:var(--el-card-solid);border:1px solid var(--el-border)">
+      <div class="pl-5 pr-3" style="color:var(--el-muted)">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </div>
+      <input type="text" placeholder="Ej: Hatonuevo, Vereda El Juncal..." class="flex-1 py-4 bg-transparent border-none outline-none text-sm" style="color:var(--el-text)">
+      <button class="el-btn el-btn-solid mr-1.5 rounded-full px-6 py-2.5">Buscar</button>
+    </div>
+
+    <!-- Brand -->
+    <div class="mt-16 flex flex-col items-center">
+      <p class="font-heading text-4xl font-extrabold tracking-tight text-white/80">CACTUS<span style="color:var(--el-accent)">NET</span></p>
+      <p class="text-xs mt-2" style="color:var(--el-muted)">Conectando comunidades</p>
+    </div>
+  </div>
+</section>
+
+<!-- =========== FOOTER =========== -->
+<footer style="border-top:1px solid var(--el-border)">
+  <div class="max-w-7xl mx-auto px-6 py-10 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs" style="color:var(--el-muted)">
+    <p>© 2026 CactusNet SAS — Todos los derechos reservados.</p>
+    <div class="flex gap-6">
+      <a href="/catalog.html" class="hover:text-white transition">← Catálogo de Demos</a>
+      <span style="color:var(--el-accent)" class="font-semibold">Aliado MINTIC</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

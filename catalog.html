@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Demos — CactusNet</title>
+  <link rel="icon" href="/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body class="antialiased">
+
+<div class="min-h-screen flex flex-col items-center justify-center px-5 py-16 relative noise-overlay">
+  <!-- Aurora bg -->
+  <div class="absolute inset-0 overflow-hidden" aria-hidden="true">
+    <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-cactus/20 blur-[140px]" style="animation:float-aurora 14s ease-in-out infinite"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-cyan-accent/15 blur-[120px]" style="animation:float-aurora 10s ease-in-out infinite reverse"></div>
+  </div>
+
+  <div class="relative z-10 text-center mb-16">
+    <div class="flex items-center justify-center gap-3 mb-6">
+      <img src="/favicon.ico" alt="CactusNet" class="h-12 w-12">
+      <span class="font-heading text-3xl font-extrabold text-white">cactus<span class="text-cactus">net</span></span>
+    </div>
+    <h1 class="text-4xl sm:text-5xl font-extrabold mb-4">Catálogo de <span class="text-shimmer">Demos</span></h1>
+    <p class="text-white/50 text-lg max-w-lg mx-auto">Explora diferentes diseños y estilos para el sitio web de CactusNet.</p>
+  </div>
+
+  <div class="relative z-10 grid sm:grid-cols-2 gap-6 max-w-4xl w-full">
+
+    <!-- Demo 1: Dark Aurora -->
+    <a href="/index.html" class="group glass rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-2 glow-green-hover block">
+      <div class="h-48 relative overflow-hidden">
+        <img src="/hero.png" alt="Demo Aurora Dark" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
+        <div class="absolute top-4 left-4 bg-cactus/20 border border-cactus/40 text-cactus-light text-xs font-bold px-3 py-1 rounded-full">DEMO 1</div>
+      </div>
+      <div class="p-6">
+        <h3 class="text-xl font-bold text-white mb-2">🌌 Aurora Dark Landing</h3>
+        <p class="text-white/40 text-sm leading-relaxed mb-4">Hero con aurora gradients, bento grid de features, pricing con glassmorphism, contadores animados.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-[10px] px-2 py-1 rounded-full bg-white/5 text-white/50 border border-white/10">Aurora BG</span>
+          <span class="text-[10px] px-2 py-1 rounded-full bg-white/5 text-white/50 border border-white/10">Bento Grid</span>
+          <span class="text-[10px] px-2 py-1 rounded-full bg-white/5 text-white/50 border border-white/10">3D Tilt</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Demo 2: Elegant -->
+    <a href="/elegant.html" class="group glass rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-2 glow-green-hover block">
+      <div class="h-48 relative overflow-hidden">
+        <img src="/mountains.png" alt="Demo Elegant" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
+        <div class="absolute top-4 left-4 bg-cyan-accent/20 border border-cyan-accent/40 text-cyan-300 text-xs font-bold px-3 py-1 rounded-full">DEMO 2</div>
+      </div>
+      <div class="p-6">
+        <h3 class="text-xl font-bold text-white mb-2">🏔️ Elegant Lavender</h3>
+        <p class="text-white/40 text-sm leading-relaxed mb-4">Estilo hotel premium con tonos lavanda, hero panorámico, cards con imágenes, búsqueda integrada.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-[10px] px-2 py-1 rounded-full bg-white/5 text-white/50 border border-white/10">AKINA Style</span>
+          <span class="text-[10px] px-2 py-1 rounded-full bg-white/5 text-white/50 border border-white/10">Lavender</span>
+          <span class="text-[10px] px-2 py-1 rounded-full bg-white/5 text-white/50 border border-white/10">Bento</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Demo 3: Mejoras de Estilo -->
+    <a href="/estilos/index.html" class="group glass rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-2 glow-green-hover block sm:col-span-2">
+      <div class="p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+          <div class="bg-purple-500/20 border border-purple-500/40 text-purple-300 text-xs font-bold px-3 py-1 rounded-full w-max mb-3">DEMO 3</div>
+          <h3 class="text-xl font-bold text-white mb-2">🎨 Demo de Mejoras de Estilo & Interacciones</h3>
+          <p class="text-white/40 text-sm leading-relaxed mb-4">Interacciones avanzadas, tarjetas con bordes animados, glassmorphism 3D y acordeón FAQ suave.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-[10px] px-2 py-1 rounded-full bg-white/5 text-white/50 border border-white/10">Bordes Animados</span>
+            <span class="text-[10px] px-2 py-1 rounded-full bg-white/5 text-white/50 border border-white/10">Glassmorphism 3D</span>
+            <span class="text-[10px] px-2 py-1 rounded-full bg-white/5 text-white/50 border border-white/10">Theme Switcher</span>
+          </div>
+        </div>
+        <span class="text-3xl text-purple-400 group-hover:translate-x-1 transition self-end sm:self-center">→</span>
+      </div>
+    </a>
+
+    <!-- Sub-pages -->
+    <a href="/coverage.html" class="group glass rounded-3xl p-6 transition-all duration-500 hover:-translate-y-2 glow-green-hover block sm:col-span-2">
+      <div class="flex items-center justify-between">
+        <div>
+          <span class="text-[10px] bg-emerald-500/20 text-emerald-300 px-3 py-1 rounded-full font-bold uppercase border border-emerald-500/30">Nuevo Módulo</span>
+          <h3 class="text-xl font-bold text-white mt-2 mb-1">🗺️ Mapa y Verificador de Cobertura</h3>
+          <p class="text-white/40 text-sm">Buscador interactivo de municipios (Hatonuevo, Riohacha, Uribia, Maicao) con estado de red en tiempo real.</p>
+        </div>
+        <span class="text-3xl text-emerald-400 group-hover:translate-x-1 transition">→</span>
+      </div>
+    </a>
+
+    <a href="/pricing.html" class="group glass rounded-3xl p-6 transition-all duration-500 hover:-translate-y-2 glow-green-hover block">
+      <div class="text-3xl mb-3">💎</div>
+      <h3 class="text-lg font-bold text-white mb-2">Página de Planes</h3>
+      <p class="text-white/40 text-sm">Pricing con gradient borders, FAQ smooth accordion.</p>
+    </a>
+
+    <a href="/about.html" class="group glass rounded-3xl p-6 transition-all duration-500 hover:-translate-y-2 glow-green-hover block">
+      <div class="text-3xl mb-3">🌿</div>
+      <h3 class="text-lg font-bold text-white mb-2">Página Nosotros</h3>
+      <p class="text-white/40 text-sm">Misión/Visión, valores grid, impact stats.</p>
+    </a>
+
+  </div>
+
+  <p class="relative z-10 text-white/20 text-xs mt-16">Construido con Vite + Tailwind CSS v4 | CactusNet 2026</p>
+</div>
+
+</body>
+</html>

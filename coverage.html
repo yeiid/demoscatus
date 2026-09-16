@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verificador de Cobertura — CactusNet</title>
+  <link rel="icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body class="bg-surface text-slate-100 font-sans min-h-screen flex flex-col noise-overlay antialiased">
+
+<!-- NAV -->
+<nav id="mainNav" class="fixed top-0 inset-x-0 z-50 py-5 transition-all duration-300 glass">
+  <div class="max-w-7xl mx-auto px-5 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2">
+      <img src="/favicon.ico" alt="CactusNet" class="h-8 w-8">
+      <span class="font-heading text-xl font-extrabold text-white">cactus<span class="text-cactus">net</span></span>
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="/" class="text-sm font-semibold text-white/80 hover:text-cactus-light transition" data-i18n="nav_home">Inicio</a>
+      <a href="/pricing.html" class="text-sm font-semibold text-white/80 hover:text-cactus-light transition" data-i18n="nav_pricing">Planes</a>
+      <a href="/about.html" class="text-sm font-semibold text-white/80 hover:text-cactus-light transition" data-i18n="nav_about">Nosotros</a>
+      <a href="/coverage.html" class="text-sm font-semibold text-cactus-light" data-i18n="nav_coverage">Cobertura</a>
+      <a href="/catalog.html" class="text-sm font-semibold text-white/80 hover:text-cactus-light transition" data-i18n="nav_catalog">Catálogo Demos</a>
+      <button data-open-glossary class="text-xs font-bold bg-slate-800 hover:bg-slate-700 text-emerald-400 px-3 py-1.5 rounded-full border border-emerald-500/30 transition flex items-center gap-1.5">
+        🌵 Glosario Wayuu
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="flex-grow pt-32 pb-20 max-w-7xl mx-auto px-5 w-full">
+  
+  <div class="text-center max-w-3xl mx-auto mb-12">
+    <span class="inline-block px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-4">
+      🗺️ Mapa de Cobertura en La Guajira
+    </span>
+    <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-4">
+      Consulta la Cobertura en tu <span class="text-shimmer">Municipio o Ranchería</span>
+    </h1>
+    <p class="text-white/60 text-lg">
+      Verifica al instante la disponibilidad de Fibra Óptica y Enlaces Rurales de CactusNet en tu zona.
+    </p>
+  </div>
+
+  <!-- SEARCH & CHECKER CARD -->
+  <div class="max-w-3xl mx-auto glass rounded-3xl p-6 sm:p-8 border border-slate-700/60 shadow-2xl mb-12">
+    <form id="coverage-form" class="flex flex-col sm:flex-row gap-3">
+      <div class="relative flex-grow">
+        <input 
+          type="text" 
+          id="muni-search" 
+          placeholder="Escribe tu municipio (Ej: Hatonuevo, Riohacha, Uribia, Maicao...)" 
+          class="w-full bg-slate-950/80 border border-slate-700 rounded-2xl px-5 py-4 text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 text-sm transition"
+          required
+        >
+      </div>
+      <button type="submit" class="bg-cactus hover:bg-cactus-light text-white font-bold px-8 py-4 rounded-2xl transition btn-sweep flex items-center justify-center gap-2 text-sm whitespace-nowrap">
+        <span>🔍 Consultar Cobertura</span>
+      </button>
+    </form>
+
+    <!-- Interactive result badge -->
+    <div id="coverage-result" class="hidden mt-6 p-5 rounded-2xl bg-slate-950/90 border border-emerald-500/40 transition-all duration-300">
+      <div class="flex items-start gap-4">
+        <div class="w-12 h-12 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 text-2xl font-bold shrink-0" id="result-icon">
+          ⚡
+        </div>
+        <div>
+          <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest" id="result-status">¡Cobertura Total Disponible!</span>
+          <h3 class="text-xl font-bold text-white mt-0.5" id="result-title">Fibra Óptica 100% Simétrica en Hatonuevo</h3>
+          <p class="text-sm text-slate-300 mt-1" id="result-desc">
+            Contamos con red de fibra dedicada lista para instalación inmediata en 24 a 48 horas.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-3">
+            <a href="/pricing.html" class="inline-flex items-center gap-2 text-xs font-bold bg-emerald-500 text-slate-950 px-4 py-2 rounded-xl hover:bg-emerald-400 transition">
+              Solicitar Instalación →
+            </a>
+            <button data-open-glossary class="inline-flex items-center gap-2 text-xs font-bold bg-slate-800 text-slate-300 px-4 py-2 rounded-xl hover:bg-slate-700 transition">
+              🌵 Atención en Wayuunaiki
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTERACTIVE MUNICIPALITY MAP GRID -->
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+    
+    <div class="glass p-6 rounded-2xl border border-emerald-500/30 hover:border-emerald-400 transition group cursor-pointer muni-card" data-muni="Hatonuevo">
+      <div class="flex justify-between items-start mb-3">
+        <span class="text-xs font-bold bg-emerald-500/20 text-emerald-300 px-3 py-1 rounded-full border border-emerald-500/40">Fibra Activa 1 Gbps</span>
+        <span class="text-xl">🌵</span>
+      </div>
+      <h3 class="text-xl font-bold text-white group-hover:text-emerald-300 transition">Hatonuevo</h3>
+      <p class="text-xs text-white/60 mt-1">Sede principal CactusNet. Cobertura urbana y zonas rurales periféricas.</p>
+    </div>
+
+    <div class="glass p-6 rounded-2xl border border-emerald-500/30 hover:border-emerald-400 transition group cursor-pointer muni-card" data-muni="Riohacha">
+      <div class="flex justify-between items-start mb-3">
+        <span class="text-xs font-bold bg-emerald-500/20 text-emerald-300 px-3 py-1 rounded-full border border-emerald-500/40">Fibra Activa 500 Mbps</span>
+        <span class="text-xl">🌊</span>
+      </div>
+      <h3 class="text-xl font-bold text-white group-hover:text-emerald-300 transition">Riohacha</h3>
+      <p class="text-xs text-white/60 mt-1">Capital del departamento. Cobertura en barrios centrales y sectores costeros.</p>
+    </div>
+
+    <div class="glass p-6 rounded-2xl border border-emerald-500/30 hover:border-emerald-400 transition group cursor-pointer muni-card" data-muni="Maicao">
+      <div class="flex justify-between items-start mb-3">
+        <span class="text-xs font-bold bg-emerald-500/20 text-emerald-300 px-3 py-1 rounded-full border border-emerald-500/40">Fibra Activa 500 Mbps</span>
+        <span class="text-xl">🛍️</span>
+      </div>
+      <h3 class="text-xl font-bold text-white group-hover:text-emerald-300 transition">Maicao</h3>
+      <p class="text-xs text-white/60 mt-1">Zona comercial e industrial. Red redundante de alta estabilidad.</p>
+    </div>
+
+    <div class="glass p-6 rounded-2xl border border-cyan-500/30 hover:border-cyan-400 transition group cursor-pointer muni-card" data-muni="Uribia">
+      <div class="flex justify-between items-start mb-3">
+        <span class="text-xs font-bold bg-cyan-500/20 text-cyan-300 px-3 py-1 rounded-full border border-cyan-500/40">Microenlace Rural</span>
+        <span class="text-xl">🐪</span>
+      </div>
+      <h3 class="text-xl font-bold text-white group-hover:text-cyan-300 transition">Uribia (Capital Indígena)</h3>
+      <p class="text-xs text-white/60 mt-1">Conexión especial por microenlace de alta frecuencia a rancherías.</p>
+    </div>
+
+    <div class="glass p-6 rounded-2xl border border-cyan-500/30 hover:border-cyan-400 transition group cursor-pointer muni-card" data-muni="Manaure">
+      <div class="flex justify-between items-start mb-3">
+        <span class="text-xs font-bold bg-cyan-500/20 text-cyan-300 px-3 py-1 rounded-full border border-cyan-500/40">Fibra & Solar Node</span>
+        <span class="text-xl">🧂</span>
+      </div>
+      <h3 class="text-xl font-bold text-white group-hover:text-cyan-300 transition">Manaure</h3>
+      <p class="text-xs text-white/60 mt-1">Red híbrida alimentada con energía solar para zonas salineras.</p>
+    </div>
+
+    <div class="glass p-6 rounded-2xl border border-emerald-500/30 hover:border-emerald-400 transition group cursor-pointer muni-card" data-muni="Fonseca">
+      <div class="flex justify-between items-start mb-3">
+        <span class="text-xs font-bold bg-emerald-500/20 text-emerald-300 px-3 py-1 rounded-full border border-emerald-500/40">Fibra Activa 300 Mbps</span>
+        <span class="text-xl">🎵</span>
+      </div>
+      <h3 class="text-xl font-bold text-white group-hover:text-emerald-300 transition">Fonseca & Barrancas</h3>
+      <p class="text-xs text-white/60 mt-1">Sur de La Guajira con anillo de fibra óptica con resiliencia ante cortes.</p>
+    </div>
+
+  </div>
+
+</main>
+
+<script>
+  // Coverage search interactive logic
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('coverage-form');
+    const input = document.getElementById('muni-search');
+    const result = document.getElementById('coverage-result');
+    const title = document.getElementById('result-title');
+    const desc = document.getElementById('result-desc');
+    const status = document.getElementById('result-status');
+    const icon = document.getElementById('result-icon');
+
+    const data = {
+      hatonuevo: { name: "Hatonuevo", speed: "1 Gbps Fibra Óptica", status: "¡Sede Principal Activa!", type: "activa", desc: "Red 100% de fibra óptica desplegada en zona urbana y rancherías aledañas." },
+      riohacha: { name: "Riohacha", speed: "500 Mbps Fibra Óptica", status: "¡Cobertura Total Disponible!", type: "activa", desc: "Instalación express disponible en 24h para zonas urbanas y playa." },
+      maicao: { name: "Maicao", speed: "500 Mbps Fibra Óptica", status: "¡Cobertura Comercial Activa!", type: "activa", desc: "Red empresarial y residencial de ultra latencia baja." },
+      uribia: { name: "Uribia", speed: "200 Mbps Enlace Rural", status: "¡Cobertura Indígena Especial!", type: "rural", desc: "Nodos de alta potencia con atención y soporte directo en Wayuunaiki." },
+      manaure: { name: "Manaure", speed: "300 Mbps Fibra + Solar", status: "¡Nodos Solares Activos!", type: "activa", desc: "Servicio protegido contra fluctuaciones eléctricas." },
+      fonseca: { name: "Fonseca", speed: "300 Mbps Fibra Óptica", status: "¡Cobertura Sur Activa!", type: "activa", desc: "Despliegue completo con televisión IP y conectividad simétrica." }
+    };
+
+    function check(query) {
+      const q = query.toLowerCase().trim();
+      let match = null;
+      for (const key in data) {
+        if (q.includes(key) || key.includes(q)) {
+          match = data[key];
+          break;
+        }
+      }
+
+      result.classList.remove('hidden');
+      if (match) {
+        title.innerText = `${match.speed} en ${match.name}`;
+        desc.innerText = match.desc;
+        status.innerText = match.status;
+        icon.innerText = "⚡";
+      } else {
+        title.innerText = `Ampliación de Cobertura en Proceso`;
+        desc.innerText = `Estamos expandiendo la red hacia tu zona en La Guajira. ¡Deja tus datos para priorizar tu instalación!`;
+        status.innerText = "🚧 Plan de Expansión MINTIC";
+        icon.innerText = "🛰️";
+      }
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      check(input.value);
+    });
+
+    document.querySelectorAll('.muni-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const name = card.getAttribute('data-muni');
+        input.value = name;
+        check(name);
+        window.scrollTo({ top: form.offsetTop - 120, behavior: 'smooth' });
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
